@@ -4,6 +4,7 @@ import { HelloWorld, myCompSchema } from "./HelloWorld";
 import { Logo, myCompSchema2 } from "./HelloWorld/Logo";
 import { GitHubPromo } from "./GitHubPromo";
 import { gitHubPromoSchema } from "./GitHubPromo/types";
+import { realContributionData } from "./GitHubPromo/contributionData";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -93,6 +94,7 @@ export const RemotionRoot: React.FC = () => {
               forks: 2,
             },
           ],
+          contributionData: realContributionData,
           accentColor: "#6366f1",
           backgroundColor: "#0f172a",
         }}

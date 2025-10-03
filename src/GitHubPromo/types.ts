@@ -36,6 +36,7 @@ export const gitHubPromoSchema = z.object({
       forks: z.number(),
     })
   ),
+  contributionData: z.array(z.array(z.number())).optional(),
   accentColor: zColor(),
   backgroundColor: zColor(),
 });

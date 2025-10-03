@@ -8,6 +8,7 @@ import { GitHubPromoProps } from "./types";
 export const GitHubPromo: React.FC<GitHubPromoProps> = ({
   profile,
   repositories,
+  contributionData,
   accentColor,
   backgroundColor,
 }) => {
@@ -31,7 +32,10 @@ export const GitHubPromo: React.FC<GitHubPromoProps> = ({
 
       {/* Contribution Heatmap: 180-270 frames (6-9 seconds) */}
       <Sequence from={180} durationInFrames={90}>
-        <ContributionHeatmap accentColor={accentColor} />
+        <ContributionHeatmap
+          accentColor={accentColor}
+          contributionData={contributionData}
+        />
       </Sequence>
     </AbsoluteFill>
   );

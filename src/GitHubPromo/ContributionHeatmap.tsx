@@ -6,28 +6,12 @@ import {
   spring,
   interpolate,
 } from "remotion";
+import { realContributionData } from "./contributionData";
 
 interface ContributionHeatmapProps {
   accentColor: string;
+  contributionData?: number[][];
 }
-
-// Generate mock contribution data (in a real scenario, fetch from GitHub API)
-const generateContributionData = () => {
-  const weeks = 52;
-  const daysPerWeek = 7;
-  const data: number[][] = [];
-
-  for (let week = 0; week < weeks; week++) {
-    const weekData: number[] = [];
-    for (let day = 0; day < daysPerWeek; day++) {
-      // Generate random contribution count (0-10)
-      weekData.push(Math.floor(Math.random() * 11));
-    }
-    data.push(weekData);
-  }
-
-  return data;
-};
 
 const getContributionColor = (
   count: number,
@@ -42,11 +26,10 @@ const getContributionColor = (
 
 export const ContributionHeatmap: React.FC<ContributionHeatmapProps> = ({
   accentColor,
+  contributionData = realContributionData,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-
-  const contributionData = React.useMemo(() => generateContributionData(), []);
 
   // Title animation
   const titleProgress = spring({
